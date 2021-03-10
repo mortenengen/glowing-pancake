@@ -4,25 +4,29 @@ import subprocess
 import PyPDF2
 
 files_to_convert = []
-pdf_files = ['FEM006.pdf', 'FEM007.pdf']
+pdf_files = []
 
 files = os.listdir()
-for thisfile in files:
-    if thisfile.endswith('.eps'):
-        files_to_convert.append(thisfile)
+
+for this_file in files:
+    if this_file.lower().endswith('.ps'):
+        files_to_convert.append(this_file)
 
 config = {
     'inkscape':{
         'path':'C:\\Program Files\\Inkscape\\bin\\inkscape.exe'
         },
+    'ps2pdf':{
+        'path':'C:\\Program Files\\gs\\gs9.26\\lib\\ps2pdf.bat'
+        },
     'convert_several_ps':{
         'run':False,
         'files':files_to_convert,
         'format':'emf',
-        'out_dpi':400
+        'out_dpi':600
         },
     'combine_pdfs':{
-        'run':True,
+        'run':False,
         'pdfs':pdf_files,
         'outfile':'combined_pdf.pdf'
         }
@@ -33,7 +37,10 @@ def ps_to_pdf(psfile):
     """
     filename = psfile[:psfile.index('.')]
     outfile = filename + '.pdf'
-    arguments = ['ps2pdf', psfile, outfile]
+    arguments = [
+        config['ps2pdf']['path'],
+        psfile, outfile
+        ]
     run_status = subprocess.run(arguments)
     return run_status
 
