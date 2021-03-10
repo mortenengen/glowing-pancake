@@ -1,2 +1,7 @@
 .vscode
 __pycache__
+*.emf
+*.eps
+*.pdf
+*.png
+*.ps
