@@ -30,9 +30,9 @@ class Config:
                 str(Path(ps2pdf_path).parent.parent / 'bin'),
             )
 
-    def set(self, key, value):
+    def set(self, key: str, value: str):
         """Set a key-value pair in the configuration."""
-        self.config[key] = value
+        self.config[key] = value.replace('\\\\', '\\')
         with open(self.config_file, 'w', encoding='utf-8') as config_file:
             json.dump(self.config, config_file)
 
