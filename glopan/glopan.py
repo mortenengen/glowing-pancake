@@ -3,6 +3,7 @@ from pathlib import Path
 import subprocess
 import typing as t
 
+import docx2pdf
 import PyPDF3 as pypdf
 
 from .config import Config
@@ -34,6 +35,15 @@ def delete_files(files: t.List[str]):
     """
     for file in files:
         Path(file).unlink()
+
+
+def docx_to_pdf(docxfile: str):
+    """Convert a DOCX file to PDF.
+
+    Args:
+        docxfile (str): The name of the DOCX file to convert.
+    """
+    docx2pdf.convert(docxfile)
 
 
 def many_ps_to_pdf(psfiles: t.List[str]):
