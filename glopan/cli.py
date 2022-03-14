@@ -32,7 +32,9 @@ main.add_typer(config_typer)
     no_args_is_help=True,
 )
 def convert(
-    filename: str = typer.Argument(..., help='The file to convert.'),
+    filename: t.Optional[str] = typer.Argument(
+        None, help='The file to convert.'
+    ),
     from_format: t.Optional[str] = typer.Option(
         None, '--fromformat', '-ff', help='The format to convert from'
     ),
@@ -40,16 +42,35 @@ def convert(
         ..., '--toformat', '-tf', help='The format to convert to'
     ),
 ):
-    """Convert a file to a given format."""
-    if from_format is None:
+    """Convert a file to a given format. Provide either the name of a file to
+    convert or the format to convert from. If only the format to convert from
+    is given, all the files of the given format will be converted.
+    """
+    if from_format is None and filename is not None:
         from_format = filename[filename.index('.') + 1 :]
-    converter = from_format.lower() + '_to_' + to_format.lower()
+    elif from_format is None and filename is None:
+        typer.echo(
+            'Please provide the name of the file to convert and/or a format to'
+            ' convert from.'
+        )
+        raise typer.Exit()
+    if isinstance(from_format, str):
+        converter = from_format.lower() + '_to_' + to_format.lower()
     converter_function = getattr(glopan, converter, None)
-    if converter_function is not None:
-        if Path(filename).exists():
-            converter_function(filename)
+    if converter_function is not None and isinstance(from_format, str):
+        if filename is None:
+            filenames = [
+                str(this_filename)
+                for this_filename in Path().cwd().iterdir()
+                if str(this_filename).lower().endswith(from_format)
+            ]
+            for this_filename in filenames:
+                converter_function(this_filename)
         else:
-            typer.echo(f'The file {filename} does not exist.')
+            if Path(filename).exists():
+                converter_function(filename)
+            else:
+                typer.echo(f'The file {filename} does not exist.')
     else:
         typer.echo(
             'No available function to convert from '
@@ -61,10 +82,47 @@ def convert(
     no_args_is_help=True,
 )
 def combine(
-    filenames: str = typer.Argument(..., help='The files to combine.')
+    filenames: t.List[str] = typer.Argument(
+        None, help='The files to combine.'
+    ),
+    file_format: t.Optional[str] = typer.Option(
+        None, '--format', '-f', help='Combine all files of this format'
+    ),
+    outfile: t.Optional[str] = typer.Option(
+        None, '--outfile', '-o', help='The name of the combined file'
+    ),
 ):
-    """Combine several files to one."""
-    print(filenames)
+    """Combine several files to one. Provide either a list of the files to
+    combine, or the format of the files to combine.
+    """
+    if len(filenames) > 0:
+        files_to_combine = filenames
+        first_file = filenames[0]
+        file_format = first_file[first_file.index('.') :].replace('.', '')
+    elif len(filenames) == 0 and file_format is not None:
+        file_format = file_format.replace('.', '')
+        files_to_combine = [
+            str(this_file)
+            for this_file in Path.cwd().iterdir()
+            if str(this_file).lower().endswith(file_format)
+        ]
+    else:
+        typer.echo('Provide at least the format of the files to combine.')
+
+    if file_format is not None:
+        combiner = 'combine_' + file_format + 's'
+        combiner_function = getattr(glopan, combiner, None)
+    else:
+        combiner_function = None
+
+    if outfile is None and file_format is not None:
+        outfile = 'compilation.' + file_format
+
+    if combiner_function is not None:
+        if files_to_combine and outfile is not None:
+            combiner_function(files_to_combine, outfile)
+    else:
+        typer.echo(f'No available function to combine {file_format} files')
 
 
 # Config commands
