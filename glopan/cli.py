@@ -2,6 +2,7 @@
 from pathlib import Path
 import typing as t
 
+import rich
 import typer
 
 import glopan
@@ -142,3 +143,9 @@ def set_config(
 def reset():
     """Reset the configuration to an empty state."""
     glopan.config.reset()
+
+
+@config_typer.command('list')
+def list_config():
+    """List the current configuration."""
+    rich.print(glopan.config.config)
