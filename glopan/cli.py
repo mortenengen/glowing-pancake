@@ -16,14 +16,14 @@ main = typer.Typer(
     add_completion=False,
     context_settings=CONTEXT_SETTINGS,
     no_args_is_help=True,
-    help=f'✨🥞✨v{VERSION_STR}.',
+    help=f'✨🥞✨ v{VERSION_STR}.',
 )
 
 config_typer = typer.Typer(
     name='config',
     context_settings=CONTEXT_SETTINGS,
     no_args_is_help=True,
-    help='Configuration',
+    help='Set, list or reset the configuration',
 )
 
 main.add_typer(config_typer)
