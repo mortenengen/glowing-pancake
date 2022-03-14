@@ -5,10 +5,17 @@ import typing as t
 
 import docx2pdf
 import PyPDF3 as pypdf
+import typer
 
 from .config import Config
 
 config = Config()
+
+
+def check_config(key: str):
+    if not Path(config.config[key]).is_file():
+        return False
+    return True
 
 
 def combine_pdfs(pdffiles: t.List[str], outfile: str):
@@ -66,6 +73,10 @@ def pdf_convert(pdffile: str, outformat: str, outdpi=600):
     Kwargs:
         outdpi (int): The resolution of the outfile, if relevant, in DPI.
     """
+    if not check_config('inkscape_path'):
+        typer.echo('Please set the path to inkscape.exe in the configuration')
+        raise typer.Exit()
+
     arguments = []
     arguments.append(config.config['inkscape_path'])
     arguments.append(f'--export-type={outformat}')
@@ -96,6 +107,9 @@ def ps_to_pdf(psfile: str):
     Args:
         psfile (str): The name of the Postscript file.
     """
+    if not check_config('ps2pdf_path'):
+        typer.echo('Please set the path to ps2pdf.bat in the configuration')
+        raise typer.Exit()
     filename = psfile[: psfile.index('.')]
     outfile = filename + '.pdf'
     arguments = [config.config['ps2pdf_path'], psfile, outfile]
