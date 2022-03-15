@@ -126,10 +126,8 @@ def split_pdf(pdffile: str):
         pdf_in = pypdf.PdfFileReader(pdffile_handle)
         num_pages = pdf_in.numPages
         pages = []
-        if 'pdf' in pdffile:
-            file_first_name = pdffile[: pdffile.index('.pdf')]
-        elif 'PDF' in pdffile:
-            file_first_name = pdffile[: pdffile.index('.PDF')]
+        if 'pdf' in pdffile.lower():
+            file_first_name = pdffile.lower()[: pdffile.lower().index('.pdf')]
 
         for page in range(num_pages):
             pages.append(file_first_name + f'_p_{page}' + '.pdf')
