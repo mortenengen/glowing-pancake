@@ -19,7 +19,12 @@ class Config:
             with open(config_file, 'r', encoding='utf-8') as infile:
                 config = json.load(infile)
         else:
-            config = {}
+            config = {
+                'inkscape_path': None,
+                'ps2pdf_path': None,
+            }
+            with open(config_file, 'w', encoding='utf-8') as outfile:
+                json.dump(config, outfile)
 
         self.config = config
 
