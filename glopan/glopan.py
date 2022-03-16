@@ -13,9 +13,13 @@ config = Config()
 
 
 def check_config(key: str):
-    if not Path(config.config[key]).is_file():
-        return False
-    return True
+    if key in config.config:
+        if config.config[key] is None:
+            return False
+        elif not Path(config.config[key]).is_file():
+            return False
+        return True
+    return False
 
 
 def combine_pdfs(pdffiles: t.List[str], outfile: str):
