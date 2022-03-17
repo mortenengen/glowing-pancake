@@ -49,3 +49,13 @@ class Config:
         }
         with open(self.config_file, 'w', encoding='utf-8') as config_file:
             json.dump(self.config, config_file)
+
+    def check_config(self, key):
+        """Check if config key is valid"""
+        if key in self.config:
+            if self.config[key] is None:
+                return False
+            if not Path(self.config[key]).is_file():
+                return False
+            return True
+        return False

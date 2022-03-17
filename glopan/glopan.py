@@ -12,16 +12,6 @@ from .config import Config
 config = Config()
 
 
-def check_config(key: str):
-    if key in config.config:
-        if config.config[key] is None:
-            return False
-        elif not Path(config.config[key]).is_file():
-            return False
-        return True
-    return False
-
-
 def combine_pdfs(pdffiles: t.List[str], outfile: str):
     """Combine several PDF files to one.
 
@@ -77,7 +67,7 @@ def pdf_convert(pdffile: str, outformat: str, outdpi=600):
     Kwargs:
         outdpi (int): The resolution of the outfile, if relevant, in DPI.
     """
-    if not check_config('inkscape_path'):
+    if not config.check_config('inkscape_path'):
         typer.echo('Please set the path to inkscape.exe in the configuration')
         raise typer.Exit()
 
@@ -111,7 +101,7 @@ def ps_to_pdf(psfile: str):
     Args:
         psfile (str): The name of the Postscript file.
     """
-    if not check_config('ps2pdf_path'):
+    if not config.check_config('ps2pdf_path'):
         typer.echo('Please set the path to ps2pdf.bat in the configuration')
         raise typer.Exit()
     filename = psfile[: psfile.index('.')]
