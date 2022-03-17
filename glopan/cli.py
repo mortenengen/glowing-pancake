@@ -72,11 +72,13 @@ def convert(
                 converter_function(filename)
             else:
                 typer.echo(f'The file {filename} does not exist.')
+                raise typer.Exit()
     else:
         typer.echo(
             'No available function to convert from '
             f'{from_format} to {to_format}.'
         )
+        raise typer.Exit()
 
 
 @main.command(
@@ -109,6 +111,7 @@ def combine(
         ]
     else:
         typer.echo('Provide at least the format of the files to combine.')
+        raise typer.Exit()
 
     if file_format is not None:
         combiner = 'combine_' + file_format + 's'
@@ -124,6 +127,7 @@ def combine(
             combiner_function(files_to_combine, outfile)
     else:
         typer.echo(f'No available function to combine {file_format} files')
+        raise typer.Exit()
 
 
 # Config commands
