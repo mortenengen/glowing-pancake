@@ -37,21 +37,21 @@ class Config:
 
     def set(self, key: str, value: str):
         """Set a key-value pair in the configuration."""
-        self.config[key] = value.replace('\\\\', '\\')
+        if value is not None:
+            self.config[key] = value.replace('\\\\', '\\')
         with open(self.config_file, 'w', encoding='utf-8') as config_file:
             json.dump(self.config, config_file)
 
     def reset(self):
         """Reset configuration"""
-        self.config = {
-            'inkscape_path': None,
-            'ps2pdf_path': None,
-        }
+        for key in self.config:
+            self.config[key] = None
         with open(self.config_file, 'w', encoding='utf-8') as config_file:
             json.dump(self.config, config_file)
 
     def check_config(self, key):
         """Check if config key is valid"""
+        print(self)
         if key in self.config:
             if self.config[key] is None:
                 return False
@@ -59,3 +59,6 @@ class Config:
                 return False
             return True
         return False
+
+
+current_config = Config()

@@ -7,9 +7,7 @@ import docx2pdf
 import PyPDF3 as pypdf
 import typer
 
-from .config import Config
-
-config = Config()
+from .config import current_config as config
 
 
 def combine_pdfs(pdffiles: t.List[str], outfile: str):
