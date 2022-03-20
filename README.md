@@ -1,7 +1,7 @@
 # ✨🥞✨
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Checked with mypy](https://img.shields.io/badge/mypy-checked-blue)](http://mypy-lang.org/)
-
+[![codecov](https://codecov.io/gh/mortenengen/glowing-pancake/branch/main/graph/badge.svg?token=9JJ6J5HQ02)](https://codecov.io/gh/mortenengen/glowing-pancake)
 ## 🤷‍♂️ What?
 Glowing Pancake, glopan, is a simple Python package for converting figures and operating on pdfs.
 

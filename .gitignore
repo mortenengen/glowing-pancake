@@ -156,6 +156,7 @@ cython_debug/
 *.docx
 *.emf
 *.eps
+*.exe
 *.pdf
 *.png
 *.ps
