@@ -50,6 +50,7 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
+junit/
 
 # Translations
 *.mo
@@ -152,6 +153,7 @@ cython_debug/
 #.idea/
 
 .vscode
+*.docx
 *.emf
 *.eps
 *.pdf

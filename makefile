@@ -10,6 +10,7 @@ deps:  ## Install dependencies
 	python -m pip install --upgrade flake8 mccabe pylint mypy
 	python -m pip install --upgrade flit
 	python -m pip install --upgrade pytest pytest-azurepipelines pytest-cov
+	python -m pip install python-docx reportlab
 
 form:  ## Code formatting
 	python -m black $(PACKAGE_NAME)
