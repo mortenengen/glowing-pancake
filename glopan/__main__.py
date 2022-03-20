@@ -1,5 +1,5 @@
 """Entry point for Glowing Pancake"""
-from .cli import main
+from .cli import main  # pragma: no cover
 
-if __name__ == "__main__":
-    main(prog_name="glowing pancake")
+if __name__ == "__main__":  # pragma: no cover
+    main(prog_name="glowing pancake")  # pragma: no cover
