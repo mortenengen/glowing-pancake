@@ -112,15 +112,15 @@ def combine(
     else:
         typer.echo('Provide at least the format of the files to combine.')
         raise typer.Exit()
-
+    combiner_function = None
     if file_format is not None:
         combiner = 'combine_' + file_format + 's'
         combiner_function = getattr(glopan, combiner, None)
-    else:
-        combiner_function = None
 
     if outfile is None and file_format is not None:
-        outfile = 'compilation.' + file_format
+        outfile = str(
+            Path(files_to_combine[0]).parent / ('compilation.' + file_format)
+        )
 
     if combiner_function is not None:
         if files_to_combine and outfile is not None:
