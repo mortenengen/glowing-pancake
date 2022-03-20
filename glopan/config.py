@@ -51,7 +51,6 @@ class Config:
 
     def check_config(self, key):
         """Check if config key is valid"""
-        print(self)
         if key in self.config:
             if self.config[key] is None:
                 return False
