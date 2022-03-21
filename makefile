@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := deps
-.PHONY: deps form lint test tox
+.PHONY: deps form lint test tox publish
 
 PACKAGE_NAME = glopan
 
@@ -25,3 +25,6 @@ test:  ## Run tests and output reports
 
 tox:   ## Run tox
 	python -m tox -e py
+
+publish:  ## Publish to PyPI
+	python -m flit publish
