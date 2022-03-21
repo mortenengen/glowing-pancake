@@ -6,9 +6,9 @@
 Glowing Pancake, glopan, is a simple Python package for converting figures and operating on pdfs.
 
 ## 📦 Installation
-Glowing Pancake is pip-installable from Github.
+Glowing Pancake is pip-installable.
 ```
-pip install git+https://github.com/mortenengen/glowing-pancake
+pip install glopan
 ```
 
 ## 🧙‍♀️ Usage
