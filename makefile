@@ -11,6 +11,7 @@ deps:  ## Install dependencies
 	python -m pip install --upgrade flit
 	python -m pip install --upgrade pytest pytest-azurepipelines pytest-cov
 	python -m pip install python-docx reportlab
+	python -m pip install python-dotenv
 
 form:  ## Code formatting
 	python -m black $(PACKAGE_NAME)
@@ -28,3 +29,6 @@ tox:   ## Run tox
 
 publish:  ## Publish to PyPI
 	python -m flit publish
+
+coverage:  ## Upload coverage report
+	python publish_coverage.py
