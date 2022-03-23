@@ -1,4 +1,5 @@
 # ✨🥞✨
+[![Build](https://github.com/mortenengen/glowing-pancake/actions/workflows/build.yaml/badge.svg)](https://github.com/mortenengen/glowing-pancake/actions/workflows/build.yaml)
 [![Package version](https://badge.fury.io/py/glopan.svg)](https://badge.fury.io/py/glopan)
 [![codecov](https://codecov.io/gh/mortenengen/glowing-pancake/branch/main/graph/badge.svg?token=9JJ6J5HQ02)](https://codecov.io/gh/mortenengen/glowing-pancake)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
