@@ -153,3 +153,7 @@ def reset():
 def list_config():
     """List the current configuration."""
     rich.print(glopan.config.config)
+
+
+# Create Click object
+typer_click_object = typer.main.get_command(main)
