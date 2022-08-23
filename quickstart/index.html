@@ -9,7 +9,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -35,7 +35,17 @@
       }
     }
   }
-</style></head>
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X93W7TR6FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X93W7TR6FV');
+</script>
+</head>
   <body>
     
     <script>
@@ -217,15 +227,15 @@
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">glopan</span></code> can be imported as a regular Python package or used through the command line interface. You can find some examples of basic usage below.</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="c75d0f23-2967-44ff-8220-9c37bcfa6d18" name="b9c9836b-6728-491c-ab26-674a8bf74e60" type="radio">
-</input><label class="sd-tab-label" data-sync-id="python" for="c75d0f23-2967-44ff-8220-9c37bcfa6d18">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="python" for="sd-tab-item-0">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glopan</span>
 </pre></div>
 </div>
 </div>
-<input id="36d6265d-dc1c-4b10-ac9f-2c58d1876aa0" name="b9c9836b-6728-491c-ab26-674a8bf74e60" type="radio">
-</input><label class="sd-tab-label" data-sync-id="cli" for="36d6265d-dc1c-4b10-ac9f-2c58d1876aa0">
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="cli" for="sd-tab-item-1">
 CLI</label><div class="sd-tab-content docutils">
 <div class="highlight-pwsh notranslate"><div class="highlight"><pre><span></span><span class="n">glopan</span> <span class="n">-h</span>
 </pre></div>
@@ -234,15 +244,15 @@ CLI</label><div class="sd-tab-content docutils">
 </div>
 <p>Combine several PDFs into one:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="a690bc68-5dbe-4fa0-b979-e3bd61e31b62" name="a33a41f3-9f7e-4a4c-a65c-6a3dc814b4e2" type="radio">
-</input><label class="sd-tab-label" data-sync-id="python" for="a690bc68-5dbe-4fa0-b979-e3bd61e31b62">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" data-sync-id="python" for="sd-tab-item-2">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">glopan</span><span class="o">.</span><span class="n">combine_pdfs</span><span class="p">([</span><span class="s1">&#39;Report.pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;Appendix.pdf&#39;</span><span class="p">],</span> <span class="s1">&#39;Report_full.pdf&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<input id="5920a01b-c5bb-4923-a97a-9b47a260e71d" name="a33a41f3-9f7e-4a4c-a65c-6a3dc814b4e2" type="radio">
-</input><label class="sd-tab-label" data-sync-id="cli" for="5920a01b-c5bb-4923-a97a-9b47a260e71d">
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" data-sync-id="cli" for="sd-tab-item-3">
 CLI</label><div class="sd-tab-content docutils">
 <div class="highlight-pwsh notranslate"><div class="highlight"><pre><span></span><span class="n">glopan</span> <span class="n">combine</span> <span class="n">Report</span><span class="p">.</span><span class="n">pdf</span> <span class="n">Appendix</span><span class="p">.</span><span class="n">pdf</span> <span class="n">-o</span> <span class="n">Report_full</span><span class="p">.</span><span class="n">pdf</span>
 </pre></div>
@@ -251,15 +261,15 @@ CLI</label><div class="sd-tab-content docutils">
 </div>
 <p>Convert a DOCX file to PDF:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="2e93073c-52e0-4a17-876d-f926238528d1" name="767cd05c-1d24-4b50-bb92-fd8830b112e0" type="radio">
-</input><label class="sd-tab-label" data-sync-id="python" for="2e93073c-52e0-4a17-876d-f926238528d1">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" data-sync-id="python" for="sd-tab-item-4">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">glopan</span><span class="o">.</span><span class="n">docx_to_pdf</span><span class="p">(</span><span class="s1">&#39;Report.docs&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<input id="d059bfda-f99d-49c6-93fe-79bb64edf392" name="767cd05c-1d24-4b50-bb92-fd8830b112e0" type="radio">
-</input><label class="sd-tab-label" data-sync-id="cli" for="d059bfda-f99d-49c6-93fe-79bb64edf392">
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" data-sync-id="cli" for="sd-tab-item-5">
 CLI</label><div class="sd-tab-content docutils">
 <div class="highlight-pwsh notranslate"><div class="highlight"><pre><span></span><span class="n">glopan</span> <span class="n">convert</span> <span class="n">Report</span><span class="p">.</span><span class="n">docx</span> <span class="n">-tf</span> <span class="n">pdf</span>
 </pre></div>
