@@ -14,7 +14,7 @@ from .glopan import (
 )
 
 # Version
-__version__ = '0.0.2'
+__version__ = '0.0.3'
 
 # Overview over public API
 __all__ = [
