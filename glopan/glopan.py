@@ -72,6 +72,7 @@ def pdf_convert(pdffile: str, outformat: str, outdpi=600):
     arguments = []
     arguments.append(config.config['inkscape_path'])
     arguments.append(f'--export-type={outformat}')
+    arguments.append('--pdf-poppler')
     if outformat.lower() == 'png':
         arguments.append(f'--export-dpi={outdpi}')
     arguments.append(pdffile)

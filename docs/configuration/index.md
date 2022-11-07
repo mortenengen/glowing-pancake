@@ -7,6 +7,12 @@ To get access to all the features of `glopan` you need to set the paths to the I
 glopan config set inkscape_path 'C:\\Program Files\\inkscape\\bin\\inkscape.exe'
 :::
 
+and
+
+:::{code-block} pwsh
+glopan config set ps2pdf_path 'C:\\Program Files\\gs\\gs9.26\\lib\\ps2pdf.bat'
+:::
+
 You can always `list` or `reset` the configuration by typing `glopan config list` or `glopan config reset`.
 
 :::{note}
